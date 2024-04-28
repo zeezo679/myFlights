@@ -9,7 +9,7 @@ html
 }
 
 .weather-container{
-    background: url('/images/7280763.jpg');
+    background: url('../images/7280763.jpg');
     background-size: cover;
     position: relative;
     height: 180vh;
@@ -151,7 +151,7 @@ a{
 }
 
 .settings-container{
-    background: url('/images/sky.jpg');
+    background: url('../images/sky.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
