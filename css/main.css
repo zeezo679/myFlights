@@ -9,7 +9,7 @@ html
 }
 
 .weather-container{
-    background: url('/images/7280763.jpg');
+    background: url('../images/7280763.jpg');
     background-size: cover;
     position: relative;
     height: 180vh;
@@ -108,7 +108,7 @@ html
 
 .image-links{
     display: flex;
-    z-index: 999;
+    z-index: 1;
     position: relative;
     justify-content: center;
     gap: 55px;
@@ -151,7 +151,7 @@ a{
 }
 
 .settings-container{
-    background: url('/images/sky.jpg');
+    background: url('../images/sky.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
@@ -511,6 +511,59 @@ color: var(--black-color);
     align-items: center;
     justify-content: center;
     gap: 10px;
+}
+
+.login-pop-up{
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    position: fixed;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    width: 415px;
+    border-radius: 8px;
+    box-shadow: -1px 5px 19px 3px black;
+    transition: transform 0.3s ease;
+}
+
+.login-pop-up h5{
+    color: #ff4a4a;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.login-pop-up p{
+margin-bottom: 30px;
+}
+
+.login-pop-up .buttons{
+display: flex;
+gap: 10px;
+}
+
+.login-pop-up .yes{
+padding: 2px 15px;
+width: 100px;
+height: 38px;
+background-color: #2b244c;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+transition: 200ms;
+color: white;
+font-size: 14px;
+font-weight: 600;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
 }
 
 /* end zeyad code */

@@ -18,6 +18,66 @@ theme1.addEventListener('click', function(){
 
 ////
 
+
+//zeyad settings validation strt
+
+let user;
+let userName;
+let Email;
+let Password;
+
+let headerName = document.getElementById("profile-change");
+
+let userData = localStorage.getItem('Data');
+    if(userData != null){
+        let data = JSON.parse(userData);
+        if(data.length > 0){
+            user = data[0];                 //the first object set (first user details)
+            userName = user.username;       //getting the username
+            Email = user.email;
+            Password = user.password;
+            headerName.innerHTML = `What's Flyin, ${userName}`;
+        }
+}
+
+let nameInput = document.getElementById("name");
+let emailInput = document.getElementById("mail");
+let saveBtn = document.getElementById("submit")
+
+let lgpop = document.getElementById("lgpop-up");
+let ok = document.getElementById("ok");
+
+submit.onclick = function(){
+        event.preventDefault();
+        if(nameInput.value !== "" && userData != null){
+            let newName = nameInput.value;
+            let newEmail = emailInput.value;
+            let userData = localStorage.getItem('Data');
+            if(userData != null){
+                let data = JSON.parse(userData);
+                if(data.length > 0){
+                    data[0].username = newName;
+                    data[0].email = newEmail;
+                    localStorage.setItem('Data', JSON.stringify(data))            //updating the data to localStorage
+                    headerName.innerHTML = `What's Flyin, ${newName}`
+                }
+            }
+        }
+        else{
+            lgpop.style.transform = 'translate(-50%, -50%) scale(1)';
+            ok.onclick = function() {
+            lgpop.style.transform = 'translate(-500%, -50%) scale(0)';
+            }
+        }
+
+}
+
+
+
+
+
+//zeyad settings validation end
+
 let changePfp = document.getElementById("upload");
 let uploadBtn = document.getElementById("chose"); //input the file
 let image = document.getElementById("profile"); //pfp pic
@@ -33,7 +93,15 @@ window.addEventListener('load', function(){
 })
 
 changePfp.addEventListener('click', function(){
-    uploadBtn.click();
+    if(userData != null){
+        uploadBtn.click();
+    }
+    else{
+        lgpop.style.transform = 'translate(-50%, -50%) scale(1)';
+        ok.onclick = function() {
+        lgpop.style.transform = 'translate(-500%, -50%) scale(0)';
+        }
+    }
 })
 
 uploadBtn.onchange = function(){  //means when we change the image
@@ -100,6 +168,7 @@ window.addEventListener('scroll', (e) => {
 })
 
 
+//better alert pop up here
 let deletAcct = document.getElementById("delete-account");
 let pop = document.getElementById("pop-up");
 let no = document.getElementById("no");
@@ -118,8 +187,3 @@ yes.addEventListener('click', function(e){
     pop.style.transform = 'translate(-500%, -50%) scale(0)';
     window.location.reload();
 })
-
-
-
-
-// end zeyad
